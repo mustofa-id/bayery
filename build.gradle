@@ -1,0 +1,24 @@
+buildscript { 
+    ext.kotlin_version = '1.3.61'
+
+
+    apply from: 'deps.gradle'
+
+    addRepos(repositories)
+
+    dependencies {
+        classpath deps.gradleAndroid
+        classpath deps.kotlin.gradlePlugin
+        classpath deps.navigation.gradleSafeArgs
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" }
+
+    
+    }
+
+allprojects {
+    addRepos(repositories)
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

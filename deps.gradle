@@ -1,0 +1,94 @@
+/**
+ * All project versions and dependencies
+ *
+ * Habib Mustofa on 24/09/19
+ * https://mustofa.id
+ */
+
+// -> VARIABLE AREA <- //
+def versions = [:]
+def deps = [:]
+
+def kotlin = [:]
+def support = [:]
+def lifecycle = [:]
+def navigation = [:]
+def fragment = [:]
+def room = [:]
+def paging = [:]
+def glide = [:]
+def retrofit2 = [:]
+
+versions.gradleAndroid = '3.5.3'
+versions.kotlin = '1.3.61'
+versions.buildMinSdk = 21
+versions.buildTargetSdk = 29
+versions.buildTools = '29.0.2'
+versions.appcompat = '1.1.0'
+versions.supportUtils = "1.0.0"
+versions.ktx = '1.1.0'
+versions.constraintlayout = '1.1.3'
+versions.recyclerview = '1.1.0'
+versions.lifecycle = '2.2.0'
+versions.navigation = '2.2.0'
+versions.fragment = '1.2.0'
+versions.room = '2.2.3'
+versions.paging = '2.1.1'
+versions.material = '1.1.0-rc02'
+versions.glide = '4.11.0'
+versions.retrofit = '2.7.1'
+
+kotlin.gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+
+support.appcompat = "androidx.appcompat:appcompat:$versions.appcompat"
+support.coreKtx = "androidx.core:core-ktx:$versions.ktx"
+support.coreUtils = "androidx.legacy:legacy-support-core-utils:$versions.supportUtils"
+support.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
+support.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+support.material = "com.google.android.material:material:$versions.material"
+
+lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+lifecycle.viewmodelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+lifecycle.livedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
+lifecycle.commonJava8 = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
+
+navigation.fragmentKtx = "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+navigation.uiKtx = "androidx.navigation:navigation-ui-ktx:$versions.navigation"
+navigation.gradleSafeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
+
+fragment.ktx = "androidx.fragment:fragment-ktx:$versions.fragment"
+
+room.runtime = "androidx.room:room-runtime:$versions.room"
+room.compiler = "androidx.room:room-compiler:$versions.room"
+room.ktx = "androidx.room:room-ktx:$versions.room"
+
+paging.runtimeKtx = "androidx.paging:paging-runtime-ktx:$versions.paging"
+
+glide.glide = "com.github.bumptech.glide:glide:$versions.glide"
+glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+
+retrofit2.retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit2.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+
+deps.gradleAndroid = "com.android.tools.build:gradle:$versions.gradleAndroid"
+deps.kotlin = kotlin
+deps.support = support
+deps.lifecycle = lifecycle
+deps.navigation = navigation
+deps.fragment = fragment
+deps.room = room
+deps.paging = paging
+deps.glide = glide
+deps.retrofit2 = retrofit2
+
+// -> METHODS AREA <- //
+static def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+}
+
+// -> PUBLISH AREA <- //
+ext.versions = versions
+ext.deps = deps
+ext.addRepos = this.&addRepos
