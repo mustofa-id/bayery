@@ -1,7 +1,8 @@
-package id.mustofa.bayery
+package id.mustofa.bayery.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import id.mustofa.bayery.R
 
 class MainActivity : AppCompatActivity() {
 
