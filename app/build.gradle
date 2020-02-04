@@ -34,6 +34,8 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':data')
+
     implementation deps.kotlin.stdlib
 
     implementation deps.support.appcompat

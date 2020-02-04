@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+// Load module.properties file
+def dataConf = new Properties()
+file("data.properties").withInputStream { dataConf.load(it) }
+
+android {
+    compileSdkVersion versions.buildTargetSdk
+    buildToolsVersion versions.buildTools
+    defaultConfig {
+        minSdkVersion versions.buildMinSdk
+        targetSdkVersion versions.buildTargetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        /*"room.schemaLocation":"$projectDir/schemas".toString(), */
+                        "room.incremental": "true"
+                        /*"room.expandProjection":"true" */
+                ]
+            }
+        }
+
+        // Append api key to BuildConfig class
+        buildConfigField 'String', 'PIXABAY_API_KEY', "\"${dataConf.getProperty('pixabay.apikey', '')}\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+}
+
+dependencies {
+    implementation deps.kotlin.stdlib
+
+    implementation deps.paging.runtimeKtx
+
+    implementation deps.room.runtime
+    implementation deps.room.ktx
+    kapt deps.room.compiler
+
+    implementation deps.retrofit2.retrofit
+    implementation deps.retrofit2.gson
+}
