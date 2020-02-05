@@ -7,6 +7,8 @@ package id.mustofa.bayery.data
 import android.content.Context
 import com.google.gson.GsonBuilder
 import id.mustofa.bayery.data.repository.ImageRepository
+import id.mustofa.bayery.data.source.local.AppDatabase
+import id.mustofa.bayery.data.source.local.FavoriteDao
 import id.mustofa.bayery.data.source.remote.PixabayService
 import okhttp3.Cache
 import okhttp3.CacheControl
@@ -21,7 +23,10 @@ object ServiceLocator {
   private var imageRepository: ImageRepository? = null
 
   fun provideImageRepository(context: Context) = imageRepository ?: synchronized(this) {
-    imageRepository ?: DefaultImageRepository(createPixabayService(context))
+    imageRepository ?: DefaultImageRepository(
+      pixabayService = createPixabayService(context),
+      favoriteDao = createFavoriteDao(context)
+    )
   }
 
   private fun createPixabayService(context: Context): PixabayService {
@@ -56,5 +61,10 @@ object ServiceLocator {
       .client(okHttpClient)
       .build()
       .create(PixabayService::class.java)
+  }
+
+  private fun createFavoriteDao(context: Context): FavoriteDao {
+    val database = AppDatabase(context)
+    return database.favoriteDao()
   }
 }

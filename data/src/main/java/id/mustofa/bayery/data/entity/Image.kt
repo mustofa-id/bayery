@@ -4,9 +4,14 @@
  */
 package id.mustofa.bayery.data.entity
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "pixabay_images")
 data class Image(
+
+  @PrimaryKey(autoGenerate = true)
   override val id: Long,
 
   @SerializedName("webformatURL")
