@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/imageContainer"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginStart="16dp"
+  android:layout_marginTop="8dp"
+  android:layout_marginEnd="16dp"
+  android:layout_marginBottom="8dp"
+  android:clickable="true"
+  android:focusable="true"
+  android:foreground="?android:attr/selectableItemBackground"
+  app:cardCornerRadius="12dp"
+  app:cardElevation="8dp">
+
+  <ImageView
+    android:id="@+id/imageContent"
+    android:layout_width="wrap_content"
+    android:layout_height="286dp"
+    android:adjustViewBounds="true"
+    android:contentDescription="@string/app_name"
+    android:scaleType="centerCrop"
+    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@drawable/bg_image_desc"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:weightSum="2">
+
+    <TextView
+      android:id="@+id/imageUser"
+      style="@style/TextAppearance.MaterialComponents.Subtitle1"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_weight="2"
+      android:textColor="@android:color/white"
+      tools:text="@tools:sample/lorem[1]" />
+
+    <TextView
+      android:id="@+id/imageLikes"
+      style="@style/TextAppearance.MaterialComponents.Subtitle1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="8dp"
+      android:drawableStart="@drawable/ic_likes"
+      android:drawablePadding="2dp"
+      android:gravity="center_vertical"
+      android:textColor="@android:color/white"
+      tools:text="25" />
+
+    <TextView
+      android:id="@+id/imageComments"
+      style="@style/TextAppearance.MaterialComponents.Subtitle1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="8dp"
+      android:drawableStart="@drawable/ic_comments"
+      android:drawablePadding="2dp"
+      android:gravity="center_vertical"
+      android:textColor="@android:color/white"
+      tools:text="7" />
+
+  </LinearLayout>
+
+</androidx.cardview.widget.CardView>

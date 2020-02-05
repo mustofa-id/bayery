@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/itemsContainer"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/itemsRefresher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/itemsRecyclerView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:clipToPadding="false"
+      android:paddingTop="8dp"
+      android:paddingBottom="8dp" />
+
+  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+  <LinearLayout
+    android:id="@+id/itemsEmpty"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    android:visibility="gone"
+    tools:ignore="UseCompoundDrawables">
+
+    <ImageView
+      android:layout_width="56dp"
+      android:layout_height="56dp"
+      android:layout_gravity="center"
+      android:contentDescription="@string/msg_empty_result"
+      android:src="@drawable/ic_empty" />
+
+    <TextView
+      style="@style/TextAppearance.MaterialComponents.Headline4"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/msg_empty_result"
+      android:textAlignment="center" />
+
+  </LinearLayout>
+
+</FrameLayout>

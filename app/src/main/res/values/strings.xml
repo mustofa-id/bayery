@@ -1,6 +1,9 @@
 <resources>
   <string name="app_name">Bayery</string>
   <string name="title_retry">Retry</string>
+  <string name="title_home">Home</string>
+  <string name="title_favorite">Favorite</string>
   <string name="msg_please_wait">Please wait…</string>
   <string name="mgs_favorite_failed">Failed to update favorite!</string>
+  <string name="msg_empty_result">No data!</string>
 </resources>
