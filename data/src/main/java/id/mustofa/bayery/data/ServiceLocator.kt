@@ -26,7 +26,7 @@ object ServiceLocator {
     imageRepository ?: DefaultImageRepository(
       pixabayService = createPixabayService(context),
       favoriteDao = createFavoriteDao(context)
-    )
+    ).also { imageRepository = it }
   }
 
   private fun createPixabayService(context: Context): PixabayService {

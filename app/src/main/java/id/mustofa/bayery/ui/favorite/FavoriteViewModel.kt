@@ -11,6 +11,5 @@ class FavoriteViewModel(
   imageRepo: ImageRepository
 ) : ViewModel() {
 
-  // TODO: Fix data won't update after database updated
   val favorites = imageRepo.getFavoriteImages()
 }
